@@ -2,7 +2,7 @@
 
 import json
 import platform
-from datetime import datetime, timezone
+from datetime import UTC, datetime
 from pathlib import Path
 
 from src.monitor import verificar_arquivos
@@ -11,7 +11,8 @@ ROOT = Path(__file__).resolve().parent.parent
 REPORT = ROOT / "reports" / "daily_report.json"
 
 
-def main():
+def main() -> None:
+    """Verifica arquivos e gera um relatório JSON."""
     REPORT.parent.mkdir(parents=True, exist_ok=True)
 
     arquivos = [
@@ -28,7 +29,7 @@ def main():
 
     relatorio = {
         "projeto": "CommitFlow",
-        "gerado_em": datetime.now(timezone.utc).isoformat(),
+        "gerado_em": datetime.now(UTC).isoformat(),
         "ambiente": {
             "python": platform.python_version(),
             "sistema": platform.system(),
