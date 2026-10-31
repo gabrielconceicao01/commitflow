@@ -1,0 +1,51 @@
+{
+  "projeto": "CommitFlow",
+  "gerado_em": "2026-10-31T15:22:12.222015+00:00",
+  "ambiente": {
+    "python": "3.12.15",
+    "sistema": "Linux"
+  },
+  "monitoramento": {
+    "total": 7,
+    "encontrados": 7,
+    "ausentes": 0,
+    "sucesso": true,
+    "detalhes": [
+      {
+        "arquivo": "README.md",
+        "existe": true,
+        "status": "ok"
+      },
+      {
+        "arquivo": ".gitignore",
+        "existe": true,
+        "status": "ok"
+      },
+      {
+        "arquivo": "requirements.txt",
+        "existe": true,
+        "status": "ok"
+      },
+      {
+        "arquivo": "src/monitor.py",
+        "existe": true,
+        "status": "ok"
+      },
+      {
+        "arquivo": "src/generate_report.py",
+        "existe": true,
+        "status": "ok"
+      },
+      {
+        "arquivo": "tests/test_monitor.py",
+        "existe": true,
+        "status": "ok"
+      },
+      {
+        "arquivo": ".github/workflows/daily.yml",
+        "existe": true,
+        "status": "ok"
+      }
+    ]
+  }
+}
