@@ -1,0 +1,44 @@
+name: Verificação diária do projeto
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: "17 12 * * *"
+
+permissions:
+  contents: read
+
+jobs:
+  verificar:
+    name: Testar o projeto Python
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Verificar versão do Python
+        run: python --version
+
+      - name: Verificar arquivos essenciais
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+
+          arquivos = [
+              Path("README.md"),
+              Path(".gitignore"),
+          ]
+
+          for arquivo in arquivos:
+              if not arquivo.is_file():
+                  raise SystemExit(f"Arquivo ausente: {arquivo}")
+              print(f"OK: {arquivo}")
+
+          print("Verificação concluída!")
+          PY
